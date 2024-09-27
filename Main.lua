@@ -11,8 +11,9 @@ end
 game.StarterGui:SetCore(
     "SendNotification",
     {
-        Title = "Script Loading ..",
-        Text = "5 Second",
+        Title = "Turbo Lite Hub",
+        Text = "Đang Tải",
+        Icon = "rbxthumb://type=Asset&id=18919385616&w=150&h=150",
         Duration = 4
     })
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -2328,14 +2329,14 @@ local Tabs = {
     St = Window:AddTab({ Title = "Tab Status", Icon = "" }),
     stack = Window:AddTab({ Title = "Quest/item", Icon = "" }),           
     Qs = Window:AddTab({ Title = "Main Misc", Icon = "" }),
-    Sh = Window:AddTab({ Title = "Của Hàng", Icon = "" }),  
-    spl = Window:AddTab({ Title = "Nâng Chỉ Số", Icon = "" }),
-    raid = Window:AddTab({ Title = "Auto Farm Raid", Icon = "" }),    
-    Se = Window:AddTab({ Title = "Sea Event/Island", Icon = "" }),
+    Sh = Window:AddTab({ Title = "Của Hàng", Icon = "" }),    
+    raid = Window:AddTab({ Title = "Farm Raid", Icon = "" }),    
+    Se = Window:AddTab({ Title = "Sea Island", Icon = "" }),
     RC = Window:AddTab({ Title = "Trial Race V4", Icon = "" }),  
-    De = Window:AddTab({ Title = "Tab Trái Cây", Icon = "" }),   
-    Lc = Window:AddTab({ Title = "Dịch Chuyển", Icon = "" }),     
-    Ms = Window:AddTab({ Title = "Main Title", Icon ="" }),           
+    De = Window:AddTab({ Title = "Blox Trái Cây", Icon = "" }),   
+    Lc = Window:AddTab({ Title = "Dịch Chuyển", Icon = "" }),
+    spl = Window:AddTab({ Title = "Tab Chỉ Số", Icon = "" }),     
+    Ms = Window:AddTab({ Title = "Tab Star Title", Icon ="" }),           
     Settings = Window:AddTab({ Title = "Tab Setting", Icon = "" }),
 }
 local Options = Fluent.Options
@@ -2367,17 +2368,18 @@ do
     }
 
 Window:SelectTab(1)
+Tabs.infor:AddSection("Nhóm Discord")
 Tabs.infor:AddButton({
-        Title = "Discord: Turbo Lite",
-        Description = "Click Copy Link Server",
+        Title = "Server Turbo Lite Hub | Copy Link",
+        Description = "https://discord.gg/zKA8VNHzME",
         Callback = function()
-        setclipboard("https://discord.gg/cFcshxGQCe")
+        setclipboard("https://discord.gg/zKA8VNHzME")
         end
     })
     
 Tabs.Main:AddSection("Main Farm Level")
 Tabs.Main:AddButton({
-    Title = "Super Fix Lag [Click]",
+    Title = "Super Fix Lag | Click",
     Description = "Giảm Độ Họa Để Chơi Mượt Hơn",
     Callback = function()
         local function FPSBooster()
@@ -7578,7 +7580,8 @@ spawn(function()
 game.StarterGui:SetCore(
     "SendNotification",
     {
-        Title = "Loading Success",
-        Text = "Success",
+        Title = "Turbo Lite Hub",
+        Text = "Đã Tải Xong",
+        Icon = "rbxthumb://type=Asset&id=18919385616&w=150&h=150",
         Duration = 1
     })
