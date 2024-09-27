@@ -2368,7 +2368,7 @@ do
     }
 
 Window:SelectTab(1)
-Tabs.infor:AddSection("Nhóm Discord Của Tớ >w>")
+Tabs.infor:AddSection("Nhóm Discord Của Tớ >w<")
 Tabs.infor:AddButton({
         Title = "Server Turbo Lite Hub | Copy Link",
         Description = "https://discord.gg/zKA8VNHzME",
@@ -4941,7 +4941,7 @@ end)
 	    end
     end)
     
-    local Toggle = Tabs.De:AddToggle("MyToggle", {Title = "Bay Đên Trái", Default = false })
+    local Toggle = Tabs.De:AddToggle("MyToggle", {Title = "Bay Đến Trái", Default = false })
 
     Toggle:OnChanged(function(Value)
         Tween_Fruit = Value
@@ -6260,7 +6260,7 @@ spawn(function()
 end)
 
 if World3 then
-      local RoughSea = Tabs.Se:AddSection("Kitsune Island Tab")
+      local RoughSea = Tabs.Se:AddSection("Đảo Kitsune I Và Đảo Bí Ẩn")
 	 
 local StatusKitsune = Tabs.Se:AddParagraph({
     Title = "Kistune Island",
