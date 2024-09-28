@@ -2368,7 +2368,7 @@ do
     }
 
 Window:SelectTab(1)
-Tabs.infor:AddSection("Nhóm Discord Của Tớ >w<")
+Tabs.infor:AddSection("Nhóm Discord Của Tớ ~")
 Tabs.infor:AddButton({
         Title = "Server Turbo Lite Hub | Copy Link",
         Description = "https://discord.gg/zKA8VNHzME",
