@@ -2376,13 +2376,7 @@ Tabs.infor:AddButton({
         setclipboard("https://discord.gg/zKA8VNHzME")
         end
     })
-    Tabs.infor:AddSection("Kênh YouTube Của Tớ >w<")
-            Title = "YouTube: Turbo Lite | HiHi ",
-        Description = "https://www.youtube.com/@TurboXLite",
-        Callback = function()
-        setclipboard("https://www.youtube.com/@TurboXLite")
-        end
-    })
+    
 Tabs.Main:AddSection("Main Farm Level")
 Tabs.Main:AddButton({
     Title = "Super Fix Lag | Click",
