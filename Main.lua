@@ -2379,7 +2379,7 @@ Tabs.infor:AddButton({
     
 Tabs.Main:AddSection("Main Farm Level")
 Tabs.Main:AddButton({
-    Title = "Super Fix Lag | Click Setup",
+    Title = "Super Fix Lag | Boost FPS ",
     Description = "Giảm Độ Họa Để Chơi Mượt Hơn | Xoá 100%",
     Callback = function()
         local function FPSBooster()
