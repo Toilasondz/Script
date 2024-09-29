@@ -4195,7 +4195,26 @@ Toggle:OnChanged(function(Value)
     Callback(Value)
 end)
 
-Tabs.Main:AddSection("Đánh Boss Elite")
+Tabs.Main:AddSection("Đánh Boss Elite Hunter")
+
+    local Elite_Hunter_Status = Tabs.Main:AddParagraph({
+        Title = "Trạng Thái Boss Elite",
+        Content = ""
+    })
+
+
+	spawn(function()
+		while wait() do
+			spawn(function()
+				if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
+					Elite_Hunter_Status:SetDesc("Đang Có Boss: 🟢")	
+				else
+					Elite_Hunter_Status:SetDesc("Không Có Boss: 🔴")	
+				end
+			end)
+		end
+	end)
+    
  local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Auto Farm Elite Hunter", Default = false })
 
     Toggle:OnChanged(function(Value)
@@ -4249,8 +4268,8 @@ Tabs.Main:AddSection("Đánh Boss Elite")
 			end
 		end
 	end)
-
-Tabs.Main:AddSection("Farm Hải Tặc Và Nhà Máy")
+		
+Tabs.Main:AddSection("Đánh Hải Tặc Và Nhà Máy")
     local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Đánh Nhà Máy", Default = false })
 
     Toggle:OnChanged(function(Value)
@@ -5192,25 +5211,7 @@ spawn(function()
             end)
         end
     end)
-    
-    local Elite_Hunter_Status = Tabs.St:AddParagraph({
-        Title = "Elite Status",
-        Content = ""
-    })
-
-
-	spawn(function()
-		while wait() do
-			spawn(function()
-				if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
-					Elite_Hunter_Status:SetDesc("Status : 🟢")	
-				else
-					Elite_Hunter_Status:SetDesc("Status : 🔴")	
-				end
-			end)
-		end
-	end)
-    
+ 
     local Kitsune = Tabs.St:AddParagraph({
         Title = "Kitsune Island",
         Content = ""
