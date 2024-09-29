@@ -3969,7 +3969,7 @@ task.spawn(function()
     Title = "Tốc Độ Đánh",
     Values = {"180", "200", "250", "300", "325"},
     Multi = false,
-    Default = 200,
+    Default = 300,
 })
 DropdownTweenSpeed:SetValue("TweenSpeed")
 DropdownTweenSpeed:OnChanged(function(Value)
