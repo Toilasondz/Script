@@ -13,8 +13,7 @@ game.StarterGui:SetCore(
     {
         Title = "Turbo Lite Hub",
         Text = "Đang Tải",
-        Icon = "rbxthumb://type=Asset&id=18919385616&w=150&h=150",
-        Duration = 4
+        Duration = 5
     })
 ------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -3970,7 +3969,7 @@ task.spawn(function()
     Title = "Tốc Độ Đánh",
     Values = {"180", "200", "250", "300", "325"},
     Multi = false,
-    Default = 300,
+    Default = 200,
 })
 DropdownTweenSpeed:SetValue("TweenSpeed")
 DropdownTweenSpeed:OnChanged(function(Value)
@@ -4195,7 +4194,135 @@ Toggle:OnChanged(function(Value)
 
     Callback(Value)
 end)
-  Tabs.Main:AddSection("Farm Boss ")
+
+Tabs.Main:AddSection("Đánh Boss Elite")
+ local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Auto Farm Elite Hunter", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AutoElitehunter = Value
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+    end)
+
+    spawn(function()
+        while wait() do
+            if _G.AutoElitehunter and World3 then
+                pcall(function()
+                    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Diablo") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Deandre") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Urban") then
+							if game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
+								for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+									if v.Name == "Diablo" or v.Name == "Deandre" or v.Name == "Urban" then
+										if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+											repeat wait()
+												AutoHaki()
+                                                EquipWeapon(_G.SelectWeapon)
+                                                v.HumanoidRootPart.CanCollide = false
+                                                v.Humanoid.WalkSpeed = 0
+                                                v.HumanoidRootPart.Size = Vector3.new(70,70,70)
+                                                topos(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                                game:GetService("VirtualUser"):CaptureController()
+                                                game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                                sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                                            until _G.AutoElitehunter == false or v.Humanoid.Health <= 0 or not v.Parent
+										end
+									end
+								end
+							else
+								if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+								end
+							end                    
+						end
+					else
+
+						if _G.AutoEliteHunterHop and game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("EliteHunter") == "I don't have anything for you right now. Come back later." then
+							hop()
+						else
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
+						end
+					end
+				end)
+			end
+		end
+	end)
+
+Tabs.Main:AddSection("Farm Hải Tặc Và Nhà Máy")
+    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Đánh Nhà Máy", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AutoFactory = Value
+    end)
+
+        spawn(function()
+            while wait() do
+                spawn(function()
+                    if _G.AutoFactory then
+                        if game:GetService("Workspace").Enemies:FindFirstChild("Core") then
+                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                if v.Name == "Core" and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()         
+                                        EquipWeapon(_G.SelectWeapon)           
+                                        topos(CFrame.new(448.46756, 199.356781, -441.389252))                                  
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                    until v.Humanoid.Health <= 0 or _G.AutoFactory == false
+                                end
+                            end
+                        else
+                            topos(CFrame.new(448.46756, 199.356781, -441.389252))
+                        end
+                    end
+                end)
+            end
+        end)
+        
+        local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Đánh Hải Tặc", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AutoRaidPirate = Value
+    end)
+        
+        spawn(function()
+	while wait() do
+		if _G.AutoRaidPirate then
+			pcall(function()
+				local CFrameBoss = CFrame.new(-5496.17432, 313.768921, -2841.53027, 0.924894512, 7.37058015e-09, 0.380223751, 3.5881019e-08, 1, -1.06665446e-07, -0.380223751, 1.12297109e-07, 0.924894512)
+				if (CFrame.new(-5539.3115234375, 313.800537109375, -2972.372314453125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
+					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+						if _G.AutoRaidPirate and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+							if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 2000 then
+								repeat wait()
+									AutoHaki()
+									EquipWeapon(_G.SelectWeapon)
+									Fastattack = true
+									MakoriGayMag = true
+									v.HumanoidRootPart.CanCollide = false
+									v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+								until v.Humanoid.Health <= 0 or not v.Parent or _G.AutoRaidPirate == false
+								Fastattack = false
+								MakoriGayMag = false
+							end
+						end
+					end
+				else
+					if ((CFrameBoss).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 1500 then
+						topos(CFrameBoss)
+					else
+						BTP(CFrameBoss)
+					end
+				end
+			end)
+		end
+	end
+    end)
+    
+  Tabs.Main:AddSection("Main Đánh Boss")
     
     if World1 then
 		tableBoss = {"The Gorilla King","Bobby","Yeti","Mob Leader","Vice Admiral","Warden","Chief Warden","Swan","Magma Admiral","Fishman Lord","Wysper","Thunder God","Cyborg","Saber Expert"}
@@ -4252,80 +4379,7 @@ end)
                 end)
             end
         end
-    end)
-            
-        Tabs.Qs:AddSection("Misc ")
-    local Toggle = Tabs.Qs:AddToggle("MyToggle", {Title = "Đánh Nhà Máy", Default = false })
-
-    Toggle:OnChanged(function(Value)
-        _G.AutoFactory = Value
-    end)
-
-        spawn(function()
-            while wait() do
-                spawn(function()
-                    if _G.AutoFactory then
-                        if game:GetService("Workspace").Enemies:FindFirstChild("Core") then
-                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                if v.Name == "Core" and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        AutoHaki()         
-                                        EquipWeapon(_G.SelectWeapon)           
-                                        topos(CFrame.new(448.46756, 199.356781, -441.389252))                                  
-                                        game:GetService("VirtualUser"):CaptureController()
-                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                    until v.Humanoid.Health <= 0 or _G.AutoFactory == false
-                                end
-                            end
-                        else
-                            topos(CFrame.new(448.46756, 199.356781, -441.389252))
-                        end
-                    end
-                end)
-            end
-        end)
-        
-        local Toggle = Tabs.Qs:AddToggle("MyToggle", {Title = "Đánh Hải Tặc", Default = false })
-
-    Toggle:OnChanged(function(Value)
-        _G.AutoRaidPirate = Value
-    end)
-        
-        spawn(function()
-	while wait() do
-		if _G.AutoRaidPirate then
-			pcall(function()
-				local CFrameBoss = CFrame.new(-5496.17432, 313.768921, -2841.53027, 0.924894512, 7.37058015e-09, 0.380223751, 3.5881019e-08, 1, -1.06665446e-07, -0.380223751, 1.12297109e-07, 0.924894512)
-				if (CFrame.new(-5539.3115234375, 313.800537109375, -2972.372314453125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
-					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-						if _G.AutoRaidPirate and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-							if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 2000 then
-								repeat wait()
-									AutoHaki()
-									EquipWeapon(_G.SelectWeapon)
-									Fastattack = true
-									MakoriGayMag = true
-									v.HumanoidRootPart.CanCollide = false
-									v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-									topos(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
-								until v.Humanoid.Health <= 0 or not v.Parent or _G.AutoRaidPirate == false
-								Fastattack = false
-								MakoriGayMag = false
-							end
-						end
-					end
-				else
-					if ((CFrameBoss).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 1500 then
-						topos(CFrameBoss)
-					else
-						BTP(CFrameBoss)
-					end
-				end
-			end)
-		end
-	end
-    end)
-    
+    end)      
     
     Tabs.Qs:AddSection("Haki Quan Sát")
     
@@ -4435,60 +4489,6 @@ if _G.ChestBypass then
 end
 end)
  
- Tabs.Qs:AddSection("Elite")
- local Toggle = Tabs.Qs:AddToggle("MyToggle", {Title = "Tự Động Elite Hunter", Default = false })
-
-    Toggle:OnChanged(function(Value)
-        _G.AutoElitehunter = Value
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-    end)
-
-    spawn(function()
-        while wait() do
-            if _G.AutoElitehunter and World3 then
-                pcall(function()
-                    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Diablo") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Deandre") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Urban") then
-							if game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
-								for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-									if v.Name == "Diablo" or v.Name == "Deandre" or v.Name == "Urban" then
-										if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-											repeat wait()
-												AutoHaki()
-                                                EquipWeapon(_G.SelectWeapon)
-                                                v.HumanoidRootPart.CanCollide = false
-                                                v.Humanoid.WalkSpeed = 0
-                                                v.HumanoidRootPart.Size = Vector3.new(70,70,70)
-                                                topos(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
-                                                game:GetService("VirtualUser"):CaptureController()
-                                                game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                                sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-                                            until _G.AutoElitehunter == false or v.Humanoid.Health <= 0 or not v.Parent
-										end
-									end
-								end
-							else
-								if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                                elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                                elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-								end
-							end                    
-						end
-					else
-
-						if _G.AutoEliteHunterHop and game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("EliteHunter") == "I don't have anything for you right now. Come back later." then
-							hop()
-						else
-							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
-						end
-					end
-				end)
-			end
-		end
-	end)
  Tabs.Qs:AddSection("Rip Indra")
  local Toggle = Tabs.Qs:AddToggle("MyToggle", {Title = "Đánh Boss Rip Indra", Default = false })
 
@@ -6313,7 +6313,7 @@ spawn(function()
 end)
 
 if World3 then
-      local RoughSea = Tabs.Se:AddSection("Đảo Kitsune I Và Đảo Bí Ẩn")
+      local RoughSea = Tabs.Se:AddSection("Đảo Kitsune Và Đảo Bí Ẩn")
 	 
 local StatusKitsune = Tabs.Se:AddParagraph({
     Title = "Kistune Island",
@@ -6421,12 +6421,6 @@ spawn(function()
     end
 end)
 end
-
-local seaevent = Tabs.Se:AddSection("Sea Event Coming Soon")
-warnsea = Tabs.Se:AddParagraph({
-    Title = "Sea Event Noitify",
-    Content = "Our Sea Event will be slow because currently the Developers don't have time and we are focusing on fixing lag main script"
-})
 
     Tabs.stack:AddSection("Nhiệm Vụ")
     
@@ -7635,6 +7629,5 @@ game.StarterGui:SetCore(
     {
         Title = "Turbo Lite Hub",
         Text = "Đã Tải Xong",
-        Icon = "rbxthumb://type=Asset&id=18919385616&w=150&h=150",
         Duration = 1
     })
