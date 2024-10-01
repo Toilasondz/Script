@@ -48,7 +48,6 @@ if game.PlaceId == 2753915549 then
     elseif game.PlaceId == 7449423635 then
         World3 = true
     end
-    
 repeat
     wait()
 until game.IsLoaded and (game.Players.LocalPlayer or game.Players.PlayerAdded:Wait()) and
