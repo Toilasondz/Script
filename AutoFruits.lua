@@ -1,3 +1,5 @@
+------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
 function PostWebhook(Url, message)
     local request = http_request or request or HttpPost or syn.request
     local data =
@@ -17,7 +19,7 @@ function AdminLoggerMsg()
     local AdminMessage = {
         ["embeds"] = {
             {
-                ["title"] = "**Auto Fruit s**",
+                ["title"] = "**Auto Fruits**",
                 ["description"] = "",
                 ["type"] = "rich",
                 ["color"] = randomColor, 
