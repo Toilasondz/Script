@@ -3060,7 +3060,7 @@ spawn(function()
     end
 end)
 
-    local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Bypass TP", Default = false })
+    local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Bypass TP", Default = true })
 
     Toggle:OnChanged(function(Value)
         BypassTP = Value		
