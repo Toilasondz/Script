@@ -11,7 +11,7 @@ end
 game.StarterGui:SetCore(
     "SendNotification",
     {
-        Title = "Turbo Lite Hub",
+        Title = "Script Hub",
         Text = "Đang Tải",
         Duration = 5
     })
@@ -4864,4 +4864,21 @@ Tabs.Melee:AddButton({
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(a))
     end    
 })
+repeat
+    wait()
+until game:IsLoaded()
+if game.PlaceId == 2753915549 then
+    World1 = true
+elseif game.PlaceId == 4442272183 then
+    World2 = true
+elseif game.PlaceId == 7449423635 then
+    World3 = true
+end
+game.StarterGui:SetCore(
+    "SendNotification",
+    {
+        Title = "Script Hub",
+        Text = "Đã Tải Xong",
+        Duration = 1
+    })
                                                                               
