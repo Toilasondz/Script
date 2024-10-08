@@ -1,3 +1,21 @@
+repeat
+    wait()
+until game:IsLoaded()
+if game.PlaceId == 2753915549 then
+    World1 = true
+elseif game.PlaceId == 4442272183 then
+    World2 = true
+elseif game.PlaceId == 7449423635 then
+    World3 = true
+end
+game.StarterGui:SetCore(
+    "SendNotification",
+    {
+        Title = "Turbo Lite Hub",
+        Text = "Đang Tải",
+        Duration = 5
+    })
+
 function PostWebhook(Url, message)
     local request = http_request or request or HttpPost or syn.request
     local data =
