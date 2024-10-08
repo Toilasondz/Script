@@ -1367,6 +1367,14 @@ Tabs.infor:AddButton({
         setclipboard("https://discord.gg/zKA8VNHzME")
         end
     })
+    Tabs.infor:AddSection("Kênh YouTube Của Tớ ~")
+Tabs.infor:AddButton({
+        Title = "Đăng Ký Kênh Của Tớ Với Nha :>>",
+        Description = "https://youtube.com/@turboxlite",
+        Callback = function()
+        setclipboard("YouTube: Turbo Lite")
+        end
+    })
 ---------------TabStatus
 local BuonNaoDauAiThau = Tabs.Home:AddParagraph({
     Title = "Katakuri Status:",
