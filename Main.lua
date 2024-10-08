@@ -106,7 +106,8 @@ local Tabs = {
     C = Window:AddTab({ Title = "Combat", Icon = "" }),
     tele = Window:AddTab({ Title = "Teleport", Icon = "" }),
     an = Window:AddTab({ Title = "Setting", Icon = "" }),
-    Race = Window:AddTab({ Title = "Mirage + V4", Icon = "" }),
+    meo = Window:AddTab({ Title = "Đảo Bí Ẩn", Icon = "" }),
+    Race = Window:AddTab({ Title = "Trial V4", Icon = "" }),
     Raid = Window:AddTab({ Title = "Raid-Fruit", Icon = "" }),
     Melee = Window:AddTab({ Title = "Cửa Hàng", Icon = "" })
 }
@@ -4006,7 +4007,7 @@ HopLowServer()
     end
 })
 -------Tab Race-----
-local Toggle = Tabs.Race:AddToggle("Teleport", { Title = "Teleport Mirage Island", Default = false })
+local Toggle = Tabs.meo:AddToggle("Teleport", { Title = "Teleport Mirage Island", Default = false })
 Toggle:OnChanged(function(Value)
     _G.DaoBiLon = Value
     StopTween(_G.DaoBiLon)
@@ -4023,8 +4024,7 @@ spawn(function()
                 end
             end)
         end)
-
-local Toggle = Tabs.Race:AddToggle("Teleport Gear", { Title = "Lock Moon", Default = false })
+local Toggle = Tabs.meo:AddToggle("Teleport Gear", { Title = "Lock Moon", Default = false })
 Toggle:OnChanged(function(Value)
     _G.TrangNhuCaiLonTao = Value
 end)
@@ -4043,7 +4043,7 @@ spawn(function()
 end)
 
 
-local Toggle = Tabs.Race:AddToggle("Teleport Gear", { Title = "Teleport Gear", Default = false })
+local Toggle = Tabs.meo:AddToggle("Teleport Gear", { Title = "Teleport Gear", Default = false })
 Toggle:OnChanged(function(Value)
     _G.Luom_Gear = Value
     StopTween(_G.Luom_Gear)
@@ -4067,7 +4067,7 @@ spawn(function()
     end)
 end)
 
-local Toggle = Tabs.Race:AddToggle("Teleport Gear", { Title = "Teleport Advanced Fruit", Default = false })
+local Toggle = Tabs.meo:AddToggle("Teleport Gear", { Title = "Teleport Advanced Fruit", Default = false })
 Toggle:OnChanged(function(Value)
     _G.RaDaoKhi = Value
     StopTween(_G.RaDaoKhi)
@@ -4086,7 +4086,6 @@ spawn(function()
     )
 end
 )
-local Race = Tabs.Race:AddSection("Race Trial")
 
 function DaoKhiTrenCaoCuaAn()
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
