@@ -1359,8 +1359,9 @@ function GetDistance(q)
 end
 
 ---------------SettingTab
+Tabs.infor:AddSection("Nhóm Discord Của Tớ ~")
 Tabs.infor:AddButton({
-        Title = "Discord | Turbo Lite Hub",
+        Title = "Tham Gia Discord | Turbo Lite Hub",
         Description = "https://discord.gg/zKA8VNHzME",
         Callback = function()
         setclipboard("https://discord.gg/zKA8VNHzME")
@@ -3238,7 +3239,7 @@ spawn(function()
     end
 end)
 
-local Toggle = Tabs.item:AddToggle("auto Kill", { Title = "Auto Rip_Indra", Description = "Chỉ Đánh Boss Và Chẳng Làm Đc Gì Nx", Default = false })
+local Toggle = Tabs.item:AddToggle("auto Kill", { Title = "Auto Rip_Indra", Description = "", Default = false })
 Toggle:OnChanged(function(Value)
 _G.ThangDauMatLon = Value
 StopTween(_G.ThangDauMatLon)
@@ -3379,7 +3380,7 @@ spawn(function()
 		end
 	end)
 	
-local Toggle = Tabs.item:AddToggle("auto Change", { Title = "Auto Dough King + Farm Item", Description = "Tự Động Làm Hết", Default = false })
+local Toggle = Tabs.item:AddToggle("auto Change", { Title = "Auto Dough King", Description = "", Default = false })
 Toggle:OnChanged(function(Value)
 _G.Katakuri_V2_Nhu_lon = Value
 StopTween(_G.Katakuri_V2_Nhu_lon)
