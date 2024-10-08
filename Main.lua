@@ -2045,16 +2045,16 @@ end)
 
 ---//Farm
 local Section = Tabs.Main:AddSection("Main Auto Farm")
-local SelectFastAttackMode = (SelectFastAttackMode or "Siêu Đánh Nhanh")
+local SelectFastAttackMode = (SelectFastAttackMode or "Super Attack")
 
-SelectedFastAttackMode = {"Normal Attack","Fast Attack","Siêu Đánh Nhanh"}
+SelectedFastAttackMode = {"Low Attack","Fast Attack","Super Attack"}
 
 local function ChangeModeFastAttack(SelectFastAttackMode)
 	if SelectFastAttackMode == "Normal Attack" then
 		FireCooldown = 0.1
 	elseif SelectFastAttackMode == "Fast Attack" then
 		FireCooldown = 0.07
-	elseif SelectFastAttackMode == "Siêu Đánh Nhanh" then
+	elseif SelectFastAttackMode == "Super Attack" then
 		FireCooldown = 0.02
 	end
 end
