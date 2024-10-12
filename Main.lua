@@ -90,7 +90,7 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 
 local Window = Fluent:CreateWindow({
     Title = "Turbo Lite Hub",
-    SubTitle = "Hello Tất Cả Các Bạn Đang Dùng Script",
+    SubTitle = "Hello Tất Cả Các Bạn Đang Chơi",
     TabWidth = 110,
     Size = UDim2.fromOffset(480, 320),
     Acrylic = false,
@@ -103,7 +103,7 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Auto Farm", Icon = "" }),
     Home = Window:AddTab({ Title = "Trạng Thái", Icon = "" }),
     item = Window:AddTab({ Title = "Auto Item", Icon = "" }),
-    C = Window:AddTab({ Title = "Đánh Player", Icon = "" }),
+    C = Window:AddTab({ Title = "Kill Player", Icon = "" }),
     tele = Window:AddTab({ Title = "Dịch Chuyển", Icon = "" }),
     an = Window:AddTab({ Title = "Config Misc", Icon = "" }),
     meo = Window:AddTab({ Title = "Đảo Bí Ẩn", Icon = "" }),
@@ -3932,7 +3932,7 @@ spawn(function()
     end
 end)                          
 
-local Toggle = Tabs.an:AddToggle("RemoveConMe", { Title = "Remove Damege", Description = "Xoá Damege", Default = true })
+local Toggle = Tabs.an:AddToggle("RemoveConMe", { Title = "Remove Damege", Description = "Xoá Damege", Default = false })
 Toggle:OnChanged(function(AnDepZaiHubOnTop)
    removedame = AnDepZaiHubOnTop
 end)
