@@ -11,7 +11,7 @@ end
 game.StarterGui:SetCore(
     "SendNotification",
     {
-        Title = "Script Hub",
+        Title = "Turbo Lite",
         Text = "Đang Tải",
         Duration = 5
     })
@@ -69,7 +69,7 @@ if game.PlaceId == 2753915549 then
 
 require(game.ReplicatedStorage.Util.CameraShaker):Stop()
 
-local bannedHWID = "7eda73f7-9bc5-4ab2-b7ca-884c80665df0"
+local bannedHWID = ""
 
 -- Hàm kiểm tra HWID và kick nếu bị cấm
 local function checkAndKickPlayer()
@@ -89,8 +89,8 @@ local fask = task
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Turbo Lite Hub | Pro Beta",
-    SubTitle = "https://discord.gg/zKA8VNHzME",
+    Title = "Turbo Lite Hub",
+    SubTitle = "Hello Tất Cả Các Bạn Đang Dùng Script",
     TabWidth = 110,
     Size = UDim2.fromOffset(480, 320),
     Acrylic = false,
@@ -99,16 +99,16 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    infor = Window:AddTab({ Title = "Home Infor", Icon = "" }),
-    Main = Window:AddTab({ Title = "Main Farm", Icon = "" }),
-    Home = Window:AddTab({ Title = "Tab Status", Icon = "" }),
-    item = Window:AddTab({ Title = "Item Farm", Icon = "" }),
-    C = Window:AddTab({ Title = "Combat", Icon = "" }),
-    tele = Window:AddTab({ Title = "Teleport", Icon = "" }),
-    an = Window:AddTab({ Title = "Setting", Icon = "" }),
+    infor = Window:AddTab({ Title = "Trang Chủ", Icon = "" }),
+    Main = Window:AddTab({ Title = "Auto Farm", Icon = "" }),
+    Home = Window:AddTab({ Title = "Trạng Thái", Icon = "" }),
+    item = Window:AddTab({ Title = "Auto Item", Icon = "" }),
+    C = Window:AddTab({ Title = "Đánh Player", Icon = "" }),
+    tele = Window:AddTab({ Title = "Dịch Chuyển", Icon = "" }),
+    an = Window:AddTab({ Title = "Config Misc", Icon = "" }),
     meo = Window:AddTab({ Title = "Đảo Bí Ẩn", Icon = "" }),
-    Race = Window:AddTab({ Title = "Trial V4", Icon = "" }),
-    Raid = Window:AddTab({ Title = "Raid-Fruit", Icon = "" }),
+    Race = Window:AddTab({ Title = "Trial Tộc V4", Icon = "" }),
+    Raid = Window:AddTab({ Title = "Raid Fruit", Icon = "" }),
     Melee = Window:AddTab({ Title = "Cửa Hàng", Icon = "" })
 }
 
@@ -1380,23 +1380,23 @@ end
 ---------------SettingTab
 Tabs.infor:AddSection("Nhóm Discord Của Tớ ~")
 Tabs.infor:AddButton({
-        Title = "Tham Gia Discord | Turbo Lite Hub",
-        Description = "https://discord.gg/zKA8VNHzME",
+        Title = "Tham Gia Nhóm | Turbo Lite Và Các Bạn",
+        Description = "https://discord.gg/zKA8VNHzME | Sao Chép Link",
         Callback = function()
-        setclipboard("https://discord.gg/zKA8VNHzME")
+        setclipboard("https://discord.gg/zKA8VNHzME | Sao Chép Link")
         end
     })
     Tabs.infor:AddSection("Kênh YouTube Của Tớ ~")
 Tabs.infor:AddButton({
         Title = "Đăng Ký Kênh Của Tớ Với Nha :>>",
-        Description = "https://youtube.com/@turboxlite",
+        Description = "https://youtube.com/@turboxlite | Turbo Lite",
         Callback = function()
         setclipboard("YouTube: Turbo Lite")
         end
     })
 ---------------TabStatus
 local BuonNaoDauAiThau = Tabs.Home:AddParagraph({
-    Title = "Katakuri Status:",
+    Title = "Trạng Thái: Boss Katakuri:",
     Content = ""
 })
 
@@ -1420,7 +1420,7 @@ function()
 end
 )
 local EmOiDungKhoc = Tabs.Home:AddParagraph({
-        Title = "Status Full Moon:",
+        Title = "Trạng Thái: Server Full Moon",
         Content = ""
     })
     spawn(
@@ -1447,7 +1447,7 @@ end
 end
 )
 local ConMeMayThangWidiBuCacAnhDi = Tabs.Home:AddParagraph({
-    Title = "Elite Status",
+    Title = "Trạng Thái: Boss Elite Hunter",
     Content = ""
 })
 spawn(
@@ -1471,16 +1471,16 @@ spawn(
 end
 )
 local DaoNaoCac = Tabs.Home:AddParagraph({
-    Title = "Mirage Status",
+    Title = "Trạng Thái: Đảo Kì Bí",
     Content = ""
 })
 
 local function updateMirageStatus()
-    local mirageIsland = game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island')
+    local mirageIsland = game.Workspace._WorldOrigin.Locations:FindFirstChild('Đảo Kì Bí')
     if mirageIsland then
-        DaoNaoCac:SetDesc('Status: Có Đảo')
+        DaoNaoCac:SetDesc('Trạng Thái: Đang Có Đảo')
     else
-        DaoNaoCac:SetDesc('Status: Không Có Đảo')
+        DaoNaoCac:SetDesc('Trạng Thái: Không Có Đảo')
     end
 end
 
@@ -1490,7 +1490,7 @@ spawn(function()
     end
 end
 )
-local Mastery = Tabs.Home:AddSection("Join sever")
+local Mastery = Tabs.Home:AddSection("Join Server")
 local Input = Tabs.Home:AddInput("Input", {
         Title = "Job Id",
         Default = "",
@@ -2431,7 +2431,7 @@ Toggle:OnChanged(function(Value)
     StopTween(_G.AutoFarm)
 end)
 local Meo = Tabs.Main:AddSection("Đánh Hải Tặc Và Nhà Máy")
-local Toggle = Tabs.Main:AddToggle("Auto Eliter Hunter", { Title = "Auto Raid Pirates", Default = false })
+local Toggle = Tabs.Main:AddToggle("Auto Eliter Hunter", { Title = "Auto Đánh Hải Tặc | Sea 3", Default = false })
 Toggle:OnChanged(function(Value)
     _G.RaidPirate = Value
  StopTween(_G.RaidPirate)
@@ -2473,7 +2473,7 @@ spawn(function()
 end
 )
 --/Farm Sea 2
-local Toggle = Tabs.Main:AddToggle("Auto Rengoku", { Title = "Auto Factory", Default = false })
+local Toggle = Tabs.Main:AddToggle("Auto Rengoku", { Title = "Auto Đánh Nhà Máy | Sea 2", Default = false })
 Toggle:OnChanged(function(Value)
     _G.Auto_Nha_Dien = Value
     StopTween(_G.Auto_Nha_Dien)
@@ -2533,7 +2533,7 @@ spawn(function()
         end
     end)
 end)
-local ConCac = Tabs.Main:AddSection("Random Bone + Fruits")
+local ConCac = Tabs.Main:AddSection("Main Auto Random")
 local Toggle = Tabs.Main:AddToggle("Random Fruit", { Title = "Random Fruit", Default = false })
 Toggle:OnChanged(function(Value)
     _G.Random_Auto = Value
@@ -2548,7 +2548,7 @@ spawn(function()
             end
         end)
     end)
-local Toggle = Tabs.Main:AddToggle("Random Bone", { Title = "Auto Random Bone", Default = false })
+local Toggle = Tabs.Main:AddToggle("Random Bone", { Title = "Random Bone", Default = false })
 Toggle:OnChanged(function(WinDyLaConCacTao)
     _G.RandomBone = WinDyLaConCacTao
 end)
@@ -3589,7 +3589,7 @@ end
 
 local SelectedPly = Tabs.C:AddDropdown("SelectedPly", {
     Title = "Select Player",
-    Description = "",
+    Description = "Chọn Người Chơi",
     Values = Playerslist,
     Multi = false,
     Default = 1,
@@ -3602,7 +3602,7 @@ end)
 
 Tabs.C:AddButton({
     Title = "Refresh Player",
-    Description = "",
+    Description = "Làm Mới Người Chơi",
     Callback = function()
         Playerslist = {}
         if not SelectedPly then
@@ -3621,7 +3621,7 @@ Tabs.C:AddButton({
     end
 })
 
-local ToggleTeleport = Tabs.C:AddToggle("ToggleTeleport", {Title = "Teleport To Player", Description = "",Default = false })
+local ToggleTeleport = Tabs.C:AddToggle("ToggleTeleport", {Title = "Teleport To Player", Description = "Bay Đến Người Đã Chọn",Default = false })
 ToggleTeleport:OnChanged(function(Value)
     _G.TeleportPly = Value
     StopTween(_G.TeleportPly)
@@ -3645,18 +3645,18 @@ Tabs.tele:AddButton({
         Callback = function()
             Window:Dialog({
                 Title = "Warn !",
-                Content = "Yes Or No",
+                Content = "Có Qua Hay Không?",
                 Buttons = {
                     {
-                        Title = "Yes ?",
+                        Title = "Có",
                         Callback = function()
                          game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
                         end
                     },
                     {
-                        Title = "No ?",
+                        Title = "Không",
                         Callback = function()
-                            print("Đã Hủy Về Sea 1 Cực Rác")
+                            print("")
                         end
                     }
                 }
@@ -3670,18 +3670,18 @@ Tabs.tele:AddButton({
         Callback = function()
             Window:Dialog({
                 Title = "Warn !",
-                Content = "Yes Or No",
+                Content = "Có Qua Hay Không?",
                 Buttons = {
                     {
-                        Title = "Yes ?",
+                        Title = "Có",
                         Callback = function()
                          game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
                         end
                     },
                     {
-                        Title = "No ?",
+                        Title = "Không",
                         Callback = function()
-                            print("Đã Hủy Về Sea 2 Cực Rác")
+                            print("")
                         end
                     }
                 }
@@ -3695,16 +3695,16 @@ Tabs.tele:AddButton({
         Callback = function()
             Window:Dialog({
                 Title = "Warn !",
-                Content = "Yes Or No",
+                Content = "Có Qua Hay Không?",
                 Buttons = {
                     {
-                        Title = "Yes !",
+                        Title = "Có",
                         Callback = function()
                          game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
                         end
                     },
                     {
-                        Title = "No",
+                        Title = "Không",
                         Callback = function()
                             print("Trash")
                         end
@@ -3714,11 +3714,11 @@ Tabs.tele:AddButton({
         end
     })
     
-local Mastery = Tabs.tele:AddSection("Teleport Island")
+local Mastery = Tabs.tele:AddSection("Dịch Chuyển Đảo")
 
 if AnDepZai1 then
 local Dropdown1 = Tabs.tele:AddDropdown("DropdownFarm", {
-    Title = "Select Island",
+    Title = "Chọn Đảo | Sea 1",
     Values = {"WindMill", "Marine","Middle Town", "Jungle", "Pirates Village", "Desert", "Snow Island", "MarineFord", "Colosseum", "Sky Island 1", "Sky Island 2", "Sky Island 3", "Prison", "Magma Village", "Under Water Island","Fountain City", "Shank Room"},
     Multi = false,
 })
@@ -3731,7 +3731,7 @@ end
 
 if AnDepZai2 then
 local Dropdown2 = Tabs.tele:AddDropdown("DropdownFarm", {
-    Title = "Select Island",
+    Title = "Chọn Đảo | Sea 2",
     Values = {"The Cafe", "Frist Spot", "Dark Area", "Flamingo Mansion", "Flamingo Room", "Green Zone", "Factory", "Colossuim", "Zombie Island", "Two Snow Mountain", "Punk Hazard", "Cursed Ship", "Ice Castle", "Forgotten Island", "Ussop Island"},
     Multi = false,
 })
@@ -3744,7 +3744,7 @@ end
 
 if AnDepZai3 then
 local Dropdown3 = Tabs.tele:AddDropdown("DropdownFarm3", {
-    Title = "Select Island",
+    Title = "Chọn Đảo | Sea 3",
     Values = {"Mansion","Port Town","Great Tree","Castle On The Sea","Hydra Island","Haunted Castle","Ice Cream Island","Peanut Island","Cake Island","Cocoa Island","Candy Island","Tiki Outpost"},
     Multi = false,
 })
@@ -3755,7 +3755,7 @@ _G.SelectIsland = Value
 end)
 end
 
-local Toggle = Tabs.tele:AddToggle("Start Tween", { Title = "Start Tween", Default = false })
+local Toggle = Tabs.tele:AddToggle("Dịch Chuyển Đến Đảo", { Title = "Dịch Chuyển Đến Đảo", Default = false })
 Toggle:OnChanged(function(Value)
     _G.BayDao = Value     
          if _G.BayDao == true then
@@ -3859,22 +3859,7 @@ Toggle:OnChanged(function(Value)
     end)
     
                   ----------Tab Spawn Boss Katakuri Và Mấy Đồ Linh Tinh-------
-local LinhTinh = Tabs.an:AddSection("Setting Main Server")
-local Toggle = Tabs.an:AddToggle("Bypass TP", { Title = "Stop When Have Legendary", Default = false })
-Toggle:OnChanged(function(Value)
-    _G.StopTP = Value
-end)
-
-spawn(function()
-	while wait() do
-		if _G.StopTP then
-			if game.Players.LocalPlayer.Backpack:FindFirstChild("Fist of Darkness") or game.Players.LocalPlayer.Character:FindFirstChild("Fist of Darkness") or game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") or game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") then
-				BypassTP = false
-			end
-		end
-	end
-end)
-
+local LinhTinh = Tabs.an:AddSection("Main Setting Config")
 local Toggle = Tabs.an:AddToggle("Turn V4", { Title = "Tự Động Bật V4", Default = false })
 Toggle:OnChanged(function(Value)
     RaceNguLon = Value
@@ -3947,7 +3932,7 @@ spawn(function()
     end
 end)                          
 
-local Toggle = Tabs.an:AddToggle("RemoveConMe", { Title = "Remove Damege", Description = "Delete Damege", Default = true })
+local Toggle = Tabs.an:AddToggle("RemoveConMe", { Title = "Remove Damege", Description = "Xoá Damege", Default = true })
 Toggle:OnChanged(function(AnDepZaiHubOnTop)
    removedame = AnDepZaiHubOnTop
 end)
@@ -3962,7 +3947,7 @@ spawn(function()
      end
  end)
 
-local Toggle = Tabs.an:AddToggle("RemoveConMe", { Title = "Remove Notify", Description = "Delete Notify When Farm", Default = false })
+local Toggle = Tabs.an:AddToggle("RemoveConMe", { Title = "Xoá Thông Báo", Description = "Xoá Thông Báo Khi Những Gì Bạn Farm", Default = false })
 Toggle:OnChanged(function(AnDepZaiHubOnTop)
    removenotify = AnDepZaiHubOnTop
 end)
@@ -3977,28 +3962,6 @@ spawn(function()
    end
 end)
 
-local ESP = Tabs.an:AddSection("Shop")
-
-local function StartDialog(DialogName)
-  local ReplicatedStorage = game:GetService("ReplicatedStorage")
-  local DialogueController = require(ReplicatedStorage.DialogueController)
-  local DialoguesList = require(ReplicatedStorage.DialoguesList)
-  
-  for Index,Dialog in pairs(DialoguesList) do
-    if tostring(Index) == DialogName then
-      DialogueController.Start(DialogueController, Dialog)
-    end
-  end
-end
-
-Tabs.an:AddButton({
-    Title = "Open Shop Mirage",
-    Description = "View Stock Fruit On Mirage",
-    Callback = function()
-        StartDialog("FruitShop2")
-    end
-})
-
 Tabs.an:AddButton({
     Title = "Hop Server Low Player",
     Description = "",
@@ -4007,6 +3970,27 @@ HopLowServer()
     end
 })
 -------Tab Race-----
+local DaoNaoCac = Tabs.meo:AddParagraph({
+    Title = "Trạng Thái: Đảo Bí Ẩn",
+    Content = ""
+})
+
+local function updateMirageStatus()
+    local mirageIsland = game.Workspace._WorldOrigin.Locations:FindFirstChild('Đảo Kì Bí')
+    if mirageIsland then
+        DaoNaoCac:SetDesc('Trạng Thái: Đang Có Đảo')
+    else
+        DaoNaoCac:SetDesc('Trạng Thái: Không Có Đảo')
+    end
+end
+
+spawn(function()
+    while wait(1) do
+        pcall(updateMirageStatus)
+    end
+end
+)
+
 local Toggle = Tabs.meo:AddToggle("Teleport", { Title = "Teleport Mirage Island", Default = false })
 Toggle:OnChanged(function(Value)
     _G.DaoBiLon = Value
@@ -4444,7 +4428,7 @@ spawn(function()
     end
 end
 )
-local Toggle = Tabs.Race:AddToggle("Kill Trial", { Title = "Kill After Trial", Default = false })
+local Toggle = Tabs.Race:AddToggle("Kill Trial", { Title = "Kill Player Trial", Default = false })
 Toggle:OnChanged(function(Value)
     _G.Kill_V4 = Value
     AutoActiveRace = Value
@@ -4496,7 +4480,7 @@ spawn(
     end
 end
 )
-local KiuTraiAl = Tabs.Race:AddSection("Use Skill For Kill After Trial")
+local KiuTraiAl = Tabs.Race:AddSection("Use Skill Auto Kill Player Trial")
 
 local Toggle = Tabs.Race:AddToggle("Kill Trial", { Title = "Skill Z", Default = false })
 Toggle:OnChanged(function(Ditme)
@@ -4665,7 +4649,7 @@ local Mastery = Tabs.Raid:AddSection("Raid Misc")
 
 Tabs.Raid:AddButton({
     Title = "Buy Chip Law",
-    Description = "",
+    Description = "Mua Chip",
     Callback = function()
     local args = {
        [1] = "BlackbeardReward",
@@ -4678,7 +4662,7 @@ Tabs.Raid:AddButton({
 
 Tabs.Raid:AddButton({
     Title = "Start Raid Law",
-    Description = "",
+    Description = "Bắt Đầu Raid Boss",
     Callback = function()
     fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon.Button.Main.ClickDetector)
 end
@@ -4724,8 +4708,8 @@ spawn(function()
         end
     end)
 
-local Mastery = Tabs.Raid:AddSection("Random Fruit + Teleport Fruit")
-local Toggle = Tabs.Raid:AddToggle("Store Fruit", { Title = "Store Fruit", Default = true })
+local Mastery = Tabs.Raid:AddSection("Teleport Fruit")
+local Toggle = Tabs.Raid:AddToggle("Store Fruit", { Title = "Store Fruit", Default = false })
 Toggle:OnChanged(function(Value)
     getgenv().AutoStoreFruits = Value
 end)
@@ -4849,7 +4833,7 @@ spawn(function()
 end)
 -----Shop Melee-----
 local Dropdown = Tabs.Melee:AddDropdown("DropdownMelee", {
-    Title = "Select Melee",
+    Title = "Mua Melee",
     Values = {"Black Leg", "Electro", "Fishman Karate", "Dragon Claw", "Super Human", "Death Step", "Sharkman Karate", "Electric Claw", "Dragon Talon", "God Human","Sanguine Art"},
     Multi = false,
 })
@@ -4929,7 +4913,7 @@ end
 game.StarterGui:SetCore(
     "SendNotification",
     {
-        Title = "Script Hub",
+        Title = "Turbo Lite",
         Text = "Đã Tải Xong",
         Duration = 1
     })
