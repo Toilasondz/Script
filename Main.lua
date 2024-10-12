@@ -1396,7 +1396,7 @@ Tabs.infor:AddButton({
     })
 ---------------TabStatus
 local BuonNaoDauAiThau = Tabs.Home:AddParagraph({
-    Title = "Trạng Thái: Boss Katakuri:",
+    Title = "Trạng Thái: Quái Vật Katakuri",
     Content = ""
 })
 
@@ -1406,13 +1406,13 @@ function()
 		pcall(  
 		function()
 			if string.len(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")) == 88 then
-				BuonNaoDauAiThau:SetDesc("Kill : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,41).."")
+				BuonNaoDauAiThau:SetDesc("Quát Vật Còn Lại: "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,41).."")
 			elseif string.len(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")) == 87 then
 				BuonNaoDauAiThau:SetDesc("Kill : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,40).."")
 			elseif string.len(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")) == 86 then
 				BuonNaoDauAiThau:SetDesc("Kill : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,39).." ")
 			else
-				BuonNaoDauAiThau:SetDesc("🟢")
+				BuonNaoDauAiThau:SetDesc("Quát Vật Katakuri Đang Spwm")
 			end
 		end
 		)
@@ -2534,7 +2534,7 @@ spawn(function()
     end)
 end)
 local ConCac = Tabs.Main:AddSection("Main Auto Random")
-local Toggle = Tabs.Main:AddToggle("Random Fruit", { Title = "Random Fruit", Default = false })
+local Toggle = Tabs.Main:AddToggle("Random Trái Blox", { Title = "Random Fruit", Default = false })
 Toggle:OnChanged(function(Value)
     _G.Random_Auto = Value
 end)
@@ -2548,7 +2548,7 @@ spawn(function()
             end
         end)
     end)
-local Toggle = Tabs.Main:AddToggle("Random Bone", { Title = "Random Bone", Default = false })
+local Toggle = Tabs.Main:AddToggle("Random Bone", { Title = "Random Xương", Default = false })
 Toggle:OnChanged(function(WinDyLaConCacTao)
     _G.RandomBone = WinDyLaConCacTao
 end)
@@ -2572,7 +2572,7 @@ if AnDepZai3 then
 ----Tween Nay No Se Check Distance Va Chon Diem De Tele Nhanh Nhat Nhe , Minh Thi Ko Ranh Nen Se Skid Cua May Hub Khac Va Gan Chuc Nang Minh Tu Lam
 local Hiz = Tabs.item:AddSection("Farm Nguyên Liệu")
 local Dropdown = Tabs.item:AddDropdown("DropdownFarm", {
-    Title = "Chọn Nguyên Liệu | Sea 3",
+    Title = "Nguyên Liệu | Sea 3",
     Values = {"Cacao", "Dragon Scale", "Leather"},
     Multi = false,
 })
@@ -2585,7 +2585,7 @@ end
 
 if AnDepZai2 then
 local Dropdown = Tabs.item:AddDropdown("DropdownFarm", {
-    Title = "Chọn Nguyên Liệu | Sea2",
+    Title = "Nguyên Liệu | Sea 2",
     Values = {"Mystic Droplet", "Vampire Fang"},
     Multi = false,
 })
@@ -2935,7 +2935,7 @@ Toggle:OnChanged(function(Value)
     StopTween(StartFarm)
 end)
 local Cuti = Tabs.item:AddSection("Farm Boss Server")
-local Toggle = Tabs.item:AddToggle("auto Change", { Title = "Auto Soul Reaper", Description = "", Default = false })
+local Toggle = Tabs.item:AddToggle("auto Change", { Title = "Auto Soul Reaper | Sea 3", Description = "", Default = false })
 Toggle:OnChanged(function(Value)
 _G.Buoi = Value
 StopTween(_G.Buoi)
@@ -2973,7 +2973,7 @@ spawn(function()
             end
         end
     end)       
-local Toggle = Tabs.item:AddToggle("Auto Saber", { Title = "Taken Saber", Default = false })
+local Toggle = Tabs.item:AddToggle("Auto Saber", { Title = "Auto Kiếm Saber | Sea 1", Default = false })
 Toggle:OnChanged(function(Value)
     _G.Cuttay = Value
     StopTween(_G.Cuttay)
@@ -3084,7 +3084,7 @@ spawn(function()
     end)
 
 
-local Toggle = Tabs.item:AddToggle("Auto Pole", { Title = "Taken Pole", Default = false })
+local Toggle = Tabs.item:AddToggle("Auto Pole", { Title = "Auto Kiếm Pole | Sea 1", Default = false })
 Toggle:OnChanged(function(LuoiQuaAeOi)
     _G.Khi_Dot_Len_Dien = LuoiQuaAeOi
     StopTween(_G.Khi_Dot_Len_Dien)
@@ -3129,7 +3129,7 @@ end)
         end
     end)   
     
-local Toggle = Tabs.item:AddToggle("Auto Rengoku", { Title = "Taken Rengoku", Default = false })
+local Toggle = Tabs.item:AddToggle("Auto Rengoku", { Title = "Auto Kiếm Rengoku | Sea 2", Default = false })
 Toggle:OnChanged(function(Value)
     _G.Kiem_Lua = Value
     StopTween(_G.Kiem_Lua)
@@ -3165,7 +3165,7 @@ spawn(function()
         end)
     end)
 
-local Toggle = Tabs.item:AddToggle("Auto Ectoplasm", { Title = "Taken Ectoplasm", Default = false })
+local Toggle = Tabs.item:AddToggle("Auto Ectoplasm", { Title = "Auto item Ectoplasm | Sea 2", Default = false })
 Toggle:OnChanged(function(Value)
     Auto_Ki_Di = Value
     StopTween(Auto_Ki_Di)
@@ -3202,7 +3202,7 @@ end)
         end
     end)
 
-local Toggle = Tabs.item:AddToggle("Auto Ectoplasm", { Title = "Buy Sword Legendary", Default = false })
+local Toggle = Tabs.item:AddToggle("Auto Ectoplasm", { Title = "Auto Mua 3 Kiếm Zero | Sea 2", Default = false })
 Toggle:OnChanged(function(KiemNhuLon)
     NgayXuaNgayXuaCoNguoiTenLaAnDepTraiDaTaiDepTraNoiTiengTiktokNoiYoutubeCungNoiHayKiemMotNguoiDangCapHonAnDepZaiDiNheCacBanHuhuHu = KiemNhuLon
 end)      
@@ -3231,7 +3231,7 @@ spawn(function()
     end
 end)
 --//Farm Sea 3 BABABABABABAABABABABABABABABABABA
-local Toggle = Tabs.item:AddToggle("auto Kill", { Title = "Holy Torch",  Default = false })
+local Toggle = Tabs.item:AddToggle("auto Kill", { Title = "Auto Làm Holy Torch | Sea 3",  Default = false })
 Toggle:OnChanged(function(Value)
 _G.Gan_Duoc_Cho_Khi = Value
 StopTween(_G.Gan_Duoc_Cho_Khi)
@@ -3282,7 +3282,7 @@ spawn(function()
     end
 end)
 
-local Toggle = Tabs.item:AddToggle("auto Change", { Title = "Change Haki", Default = false })
+local Toggle = Tabs.item:AddToggle("auto Change", { Title = "Đổi Haki Aura | All Sea", Default = false })
 Toggle:OnChanged(function(Value)
 Gan_Haki_Lon = Value
 StopTween(Gan_Haki_Lon)
@@ -3319,7 +3319,7 @@ spawn(function()
     end
 end)
 
-local Toggle = Tabs.item:AddToggle("auto Kill", { Title = "Auto Rip_Indra", Description = "", Default = false })
+local Toggle = Tabs.item:AddToggle("auto Kill", { Title = "Auto Đánh Rip_Indra | Sea 3", Description = "", Default = false })
 Toggle:OnChanged(function(Value)
 _G.ThangDauMatLon = Value
 StopTween(_G.ThangDauMatLon)
@@ -3358,7 +3358,7 @@ end)
         end)
     end)
 
-local Toggle = Tabs.item:AddToggle("auto Kill", { Title = "Kill Boss Tushita", Default = false })
+local Toggle = Tabs.item:AddToggle("auto Kill", { Title = "Auto Kiếm Tushita | Sea 3", Default = false })
 Toggle:OnChanged(function(Value)
 _G.Long_Ma_Bac_Giang = Value
 StopTween(_G.Long_Ma_Bac_Giang)
@@ -3408,7 +3408,7 @@ end)
         end
     end)
 
-local Toggle = Tabs.item:AddToggle("Auto Eliter Hunter", { Title = "Auto Eliter Hunter", Default = false })
+local Toggle = Tabs.item:AddToggle("Auto Eliter Hunter", { Title = "Auto Đánh Eliter Hunter | Sea 3", Default = false })
 Toggle:OnChanged(function(Value)
     _G.Eli_Ngu = Value
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
@@ -3460,7 +3460,7 @@ spawn(function()
 		end
 	end)
 	
-local Toggle = Tabs.item:AddToggle("auto Change", { Title = "Auto Dough King", Description = "", Default = false })
+local Toggle = Tabs.item:AddToggle("auto Change", { Title = "Auto Đánh Dough King | Sea 3", Description = "", Default = false })
 Toggle:OnChanged(function(Value)
 _G.Katakuri_V2_Nhu_lon = Value
 StopTween(_G.Katakuri_V2_Nhu_lon)
@@ -3602,7 +3602,7 @@ end)
 
 Tabs.C:AddButton({
     Title = "Refresh Player",
-    Description = "Làm Mới Người Chơi",
+    Description = "Làm Mới Người Chơi Trong Server",
     Callback = function()
         Playerslist = {}
         if not SelectedPly then
@@ -3645,7 +3645,7 @@ Tabs.tele:AddButton({
         Callback = function()
             Window:Dialog({
                 Title = "Warn !",
-                Content = "Có Qua Hay Không?",
+                Content = "Có Qua Sea 1 Hay Không?",
                 Buttons = {
                     {
                         Title = "Có",
@@ -3670,7 +3670,7 @@ Tabs.tele:AddButton({
         Callback = function()
             Window:Dialog({
                 Title = "Warn !",
-                Content = "Có Qua Hay Không?",
+                Content = "Có Qua Sea 2 Hay Không?",
                 Buttons = {
                     {
                         Title = "Có",
@@ -3695,7 +3695,7 @@ Tabs.tele:AddButton({
         Callback = function()
             Window:Dialog({
                 Title = "Warn !",
-                Content = "Có Qua Hay Không?",
+                Content = "Có Qua Sea 3 Hay Không?",
                 Buttons = {
                     {
                         Title = "Có",
@@ -3971,16 +3971,16 @@ HopLowServer()
 })
 -------Tab Race-----
 local DaoNaoCac = Tabs.meo:AddParagraph({
-    Title = "Trạng Thái: Đảo Bí Ẩn",
+    Title = "Trạng Thái Đảo Bí Ẩn",
     Content = ""
 })
 
 local function updateMirageStatus()
     local mirageIsland = game.Workspace._WorldOrigin.Locations:FindFirstChild('Đảo Kì Bí')
     if mirageIsland then
-        DaoNaoCac:SetDesc('Trạng Thái: Đang Có Đảo')
+        DaoNaoCac:SetDesc('Trạng Thái 🟢: Đang Có Đảo')
     else
-        DaoNaoCac:SetDesc('Trạng Thái: Không Có Đảo')
+        DaoNaoCac:SetDesc('Trạng Thái 🔴: Không Có Đảo')
     end
 end
 
