@@ -90,7 +90,7 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 
 local Window = Fluent:CreateWindow({
     Title = "Turbo Lite Hub",
-    SubTitle = "Hello Tất Cả Các Bạn Đang Chơi",
+    SubTitle = "Hello World!",
     TabWidth = 110,
     Size = UDim2.fromOffset(480, 320),
     Acrylic = false,
