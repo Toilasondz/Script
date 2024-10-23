@@ -120,6 +120,49 @@ end
 -- Gọi hàm FPSBooster để tối ưu hóa ngay khi script được khởi chạy
 FPSBooster()
 
+
+-- Khởi tạo giá trị mặc định cho _G.StopChest
+_G.StopChest = true -- Hoặc false nếu bạn muốn nó tắt mặc định
+
+-- Hàm AutoFarmChest và TweenChest (giả sử bạn đã có các hàm này trước đó)
+function AutoFarmChest()
+    -- Nội dung hàm AutoFarmChest
+end
+
+function TweenChest(status)
+    -- Hàm bật/tắt TweenChest
+    if status then
+        -- Bật TweenChest
+    else
+        -- Tắt TweenChest
+    end
+end
+
+-- Hàm kiểm tra vật phẩm trong ba lô và nhân vật
+spawn(function()
+    while wait() do
+        if _G.StopChest then
+            -- Lấy thông tin người chơi
+            local player = game.Players.LocalPlayer
+            local backpack = player.Backpack
+            local character = player.Character
+            
+            -- Kiểm tra nếu người chơi có "Fist of Darkness" hoặc "God's Chalice"
+            if backpack:FindFirstChild("Fist of Darkness") or 
+               character:FindFirstChild("Fist of Darkness") or 
+               backpack:FindFirstChild("God's Chalice") or 
+               character:FindFirstChild("God's Chalice") then
+                -- Nếu có, ngừng AutoFarmChest và tắt TweenChest
+                AutoFarmChest = false
+                TweenChest(false)
+            end
+        end
+    end
+end)
+
+-- Đoạn mã này sẽ chạy ngay lập tức khi script khởi động
+print("Script đã khởi động và đang kiểm tra vật phẩm.")
+
 highChestOnly = true
 
 godsChalicSniper = true 
@@ -318,7 +361,7 @@ function AllowRunServiceBind.OnInvoke(args)
 
         Title = "Auto Farm Chest",
 
-        Text = "YouTube: Turbo Lite",
+        Text = "Tạo Bởi: Turbo Lite",
 
         Icon = "rbxthumb://type=Asset&id=18919385616&w=150&h=150",
 
@@ -358,6 +401,38 @@ task.spawn(function()
 
 end)
 
+local ScreenGui = Instance.new("ScreenGui")
+local TextLabel1 = Instance.new("TextLabel")
+local TextLabel2 = Instance.new("TextLabel")
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+-- TextLabel cho ""
+TextLabel1.Parent = ScreenGui
+TextLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel1.BackgroundTransparency = 1.000
+TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel1.BorderSizePixel = 0
+TextLabel1.Position = UDim2.new(0.359138072, 0, -0.15, 0)  -- Di chuyển chữ lên trên
+TextLabel1.Size = UDim2.new(0, 100, 0, 50)
+TextLabel1.Font = Enum.Font.FredokaOne
+TextLabel1.Text = ":"
+TextLabel1.TextColor3 = Color3.fromRGB(255, 0, 0)  -- Màu chữ đỏ
+TextLabel1.TextSize = 24.000
+
+-- TextLabel cho "Turbo Lite"
+TextLabel2.Parent = ScreenGui
+TextLabel2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel2.BackgroundTransparency = 1.000
+TextLabel2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel2.BorderSizePixel = 0
+TextLabel2.Position = UDim2.new(0.43, 0, -0.15, 0)  -- Đặt bên cạnh ""
+TextLabel2.Size = UDim2.new(0, 100, 0, 50)
+TextLabel2.Font = Enum.Font.FredokaOne
+TextLabel2.Text = "YouTube: Turbo Lite"
+TextLabel2.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Màu chữ trắng
+TextLabel2.TextSize = 24.000
 
 local CoreGui = game:GetService("StarterGui")
 
@@ -365,7 +440,7 @@ CoreGui:SetCore("SendNotification", {
 
     Title = "Auto Farm Chest",
 
-    Text = "YouTube: Turbo Lite",
+    Text = "Tạo Bởi: Turbo Lite",
 
     Icon = "rbxthumb://type=Asset&id=18919385616&w=150&h=150",
 
@@ -508,5 +583,5 @@ game.StarterGui:SetCore(
     {
         Title = "Đừng Treo Xuyên Đêm !!",
         Text = "Để Không Bị Reset Beli",
-        Duration = 30
+        Duration = 999
     })
