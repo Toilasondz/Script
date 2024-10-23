@@ -127,9 +127,9 @@ end
 game.StarterGui:SetCore(
     "SendNotification",
     {
-        Title = "Script Đang Tải ..",
-        Text = "Đợi 5 Giây",
-        Duration = 5
+        Title = "Đang Tải",
+        Text = "Hãy Đợi Chút",
+        Duration = 3
     })
 ------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -697,6 +697,6 @@ game.StarterGui:SetCore(
     "SendNotification",
     {
         Title = "Đừng Treo Xuyên Đêm !!",
-        Text = "Để Không Bị Reset Beli",
+        Text = "Để Không Bị Reset Beli Nhaa",
         Duration = 999
     })
