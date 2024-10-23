@@ -19,12 +19,12 @@ RippleFPS.Name = "RippleFPS"
 RippleFPS.Parent = game.CoreGui
 RippleFPS.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
--- Điều chỉnh khung FPS và đặt nó ở góc phải, sát cạnh trên
+-- Điều chỉnh khung FPS và đặt nó ở góc phải, cao hơn một chút
 Framefps.Name = "Framefps"
 Framefps.Parent = RippleFPS
 Framefps.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 Framefps.BorderSizePixel = 0
-Framefps.Position = UDim2.new(1, -160, 0, 0)  -- Đặt vị trí sát cạnh trên của màn hình
+Framefps.Position = UDim2.new(1, -160, 0, 5)  -- Đặt vị trí ở góc phải phía trên, cao hơn một chút (5px)
 Framefps.Size = UDim2.new(0, 150, 0, 40)  -- Giữ kích thước khung gọn
 
 UICorner213.CornerRadius = UDim.new(0, 4)
