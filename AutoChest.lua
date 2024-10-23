@@ -1,4 +1,119 @@
+-- Kiểm tra và xóa các GUI cũ
+local ui = game:GetService("CoreGui"):FindFirstChild("RippleFPS")  
+if ui then ui:Destroy() end 
 
+-- Khởi tạo các thành phần GUI mới (chỉ còn FPS)
+local RippleFPS = Instance.new("ScreenGui")
+local Framefps = Instance.new("Frame")
+local UICorner213 = Instance.new("UICorner")
+local TextLabelfps = Instance.new("TextLabel")
+local ImageLabelfps = Instance.new("ImageLabel")
+local Strokefps = Instance.new("UIStroke")
+
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local uihide = false
+local yoo = "F"  -- Điều chỉnh phím tắt cần thiết, ví dụ: F
+
+RippleFPS.Name = "RippleFPS"
+RippleFPS.Parent = game.CoreGui
+RippleFPS.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+-- Điều chỉnh khung FPS và đặt nó ở góc phải, sát cạnh trên
+Framefps.Name = "Framefps"
+Framefps.Parent = RippleFPS
+Framefps.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Framefps.BorderSizePixel = 0
+Framefps.Position = UDim2.new(1, -160, 0, 0)  -- Đặt vị trí sát cạnh trên của màn hình
+Framefps.Size = UDim2.new(0, 150, 0, 40)  -- Giữ kích thước khung gọn
+
+UICorner213.CornerRadius = UDim.new(0, 4)
+UICorner213.Parent = Framefps
+
+Strokefps.Thickness = 1
+Strokefps.Parent = Framefps
+Strokefps.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+Strokefps.LineJoinMode = Enum.LineJoinMode.Round
+Strokefps.Color = _G.Color or Color3.new(1, 1, 1)
+Strokefps.Transparency = 0
+
+-- Căn chỉnh lại chữ "FPS"
+TextLabelfps.Name = "TextLabelfps"
+TextLabelfps.Parent = Framefps
+TextLabelfps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabelfps.BackgroundTransparency = 1.000
+TextLabelfps.Position = UDim2.new(0.3, 0, 0.25, 0)  -- Căn chỉnh vị trí cho gọn
+TextLabelfps.Size = UDim2.new(0, 100, 0, 20)  -- Giảm kích thước TextLabel
+TextLabelfps.Font = Enum.Font.GothamSemibold
+TextLabelfps.Text = "FPS:N/A"
+TextLabelfps.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabelfps.TextSize = 14.000
+TextLabelfps.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Căn chỉnh lại hình ảnh biểu tượng "FPS"
+ImageLabelfps.Name = "ImageLabelfps"
+ImageLabelfps.Parent = Framefps
+ImageLabelfps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabelfps.BackgroundTransparency = 1.000
+ImageLabelfps.Position = UDim2.new(0.05, 0, 0.1, 0)  -- Căn lại vị trí biểu tượng cho hợp lý
+ImageLabelfps.Size = UDim2.new(0, 25, 0, 25)  -- Giảm kích thước biểu tượng
+ImageLabelfps.Image = "rbxassetid://9606070311"
+
+-- Cập nhật FPS
+spawn(function()
+    while wait(1) do
+        pcall(function()
+            TextLabelfps.Text = "FPS: " .. string.format("%d", workspace:GetRealPhysicsFPS())
+        end)
+    end
+end)
+
+-- Kéo thả khung FPS
+local function makeDraggable(frame)
+    local dragging, dragInput, dragStart, startPos
+
+    local function update(input)
+        local delta = input.Position - dragStart
+        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+
+    frame.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            dragging = true
+            dragStart = input.Position
+            startPos = frame.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    frame.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement then
+            dragInput = input
+        end
+    end)
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if dragging and input == dragInput then
+            update(input)
+        end
+    end)
+end
+
+makeDraggable(Framefps)
+
+-- Xử lý sự kiện nhấn phím để ẩn hiện UI
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode[yoo] then
+        -- Xử lý ẩn hoặc hiện UI
+        -- Thêm logic cần thiết tại đây
+    end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------
 repeat
     wait()
 until game:IsLoaded()
