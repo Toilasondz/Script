@@ -532,7 +532,7 @@ TextLabel1.BorderSizePixel = 0
 TextLabel1.Position = UDim2.new(0.359138072, 0, -0.15, 0)  -- Di chuyển chữ lên trên
 TextLabel1.Size = UDim2.new(0, 100, 0, 50)
 TextLabel1.Font = Enum.Font.FredokaOne
-TextLabel1.Text = ":"
+TextLabel1.Text = ""
 TextLabel1.TextColor3 = Color3.fromRGB(255, 0, 0)  -- Màu chữ đỏ
 TextLabel1.TextSize = 24.000
 
