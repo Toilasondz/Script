@@ -11,7 +11,7 @@ end
 game.StarterGui:SetCore(
     "SendNotification",
     {
-        Title = "Turbo Lite",
+        Title = "Hg Văn Sơn",
         Text = "Đang Tải",
         Duration = 5
     })
@@ -35,7 +35,7 @@ function AdminLoggerMsg()
     local AdminMessage = {
         ["embeds"] = {
             {
-                ["title"] = "**Script Turbo Lite - Farm**",
+                ["title"] = "**MEMAYBEOHUB - Farm**",
                 ["description"] = "",
                 ["type"] = "rich",
                 ["color"] = randomColor, 
@@ -89,8 +89,8 @@ local fask = task
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Turbo Lite Hub",
-    SubTitle = "Hello World!",
+    Title = "MEMAYBEOHUB",
+    SubTitle = "MEMAYBEO NHÁ",
     TabWidth = 110,
     Size = UDim2.fromOffset(480, 320),
     Acrylic = false,
@@ -108,7 +108,7 @@ local Tabs = {
     an = Window:AddTab({ Title = "Config Misc", Icon = "" }),
     meo = Window:AddTab({ Title = "Đảo Bí Ẩn", Icon = "" }),
     Race = Window:AddTab({ Title = "Trial Tộc V4", Icon = "" }),
-    Raid = Window:AddTab({ Title = "Raid Fruit", Icon = "" }),
+    Raid = Window:AddTab({ Title = "Raid Fruit", Icon = "apple" }),
     Melee = Window:AddTab({ Title = "Cửa Hàng", Icon = "" })
 }
 
@@ -1673,8 +1673,8 @@ end)()
 
 local Section = Tabs.Main:AddSection("Main Setup Setting Farm")
 Tabs.Main:AddButton({
-    Title = "Siêu Pro Fix Lag | Booster",
-    Description = "Giảm Độ Họa Để Chơi Mượt Hơn Thoii",
+    Title = "MEMAYBEO FIX LAG | Booster",
+    Description = "Giảm đồ hoạ đi mẹ mày béo",
     Callback = function()
         local function FPSBooster()
             local decalsyeeted = true
@@ -3648,13 +3648,13 @@ Tabs.tele:AddButton({
                 Content = "Có Qua Sea 1 Hay Không?",
                 Buttons = {
                     {
-                        Title = "Có",
+                        Title = "OK",
                         Callback = function()
                          game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
                         end
                     },
                     {
-                        Title = "Không",
+                        Title = "ĐÉO",
                         Callback = function()
                             print("")
                         end
